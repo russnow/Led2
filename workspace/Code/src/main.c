@@ -4,6 +4,7 @@
 
 int main (void)
 {
+	uint32_t i;
 	RCC->AHBENR|=RCC_AHBENR_GPIOBEN; //Enable tactirovanie porta B
 	RCC->AHBENR|=RCC_AHBENR_GPIOHEN;
 	GPIOB->MODER=0x5500;//Ukazyvaem na PB6 & PB7 chto eto out
@@ -19,6 +20,9 @@ int main (void)
 	{
 		
 		GPIOB->ODR=0xF0;
-		//GPIOH->ODR=0x3;
+		for (i=0; i<200000; i++) {}
+		GPIOB->ODR=0x0;
+		for (i=0;i<200000; i++) {}
+			
 	}
 }

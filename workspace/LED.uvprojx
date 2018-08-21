@@ -406,6 +406,11 @@
               <FileType>1</FileType>
               <FilePath>.\Code\src\main.c</FilePath>
             </File>
+            <File>
+              <FileName>mcu_ini.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Code\src\mcu_ini.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

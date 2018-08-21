@@ -5,23 +5,22 @@
 int main (void)
 {
 	uint32_t i;
-	RCC->AHBENR|=RCC_AHBENR_GPIOBEN; //Enable tactirovanie porta B
-	RCC->AHBENR|=RCC_AHBENR_GPIOHEN;
-	GPIOB->MODER=0x5500;//Ukazyvaem na PB6 & PB7 chto eto out
-	//GPIOH->MODER=0x5;
+	GPIO_InitTypeDef GPIO_Init_LED;
 	
-	GPIOB->OTYPER=0; //podhvatyvaem piny
-	//GPIOH->OTYPER=0;
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE); //vkluchayet tactirovanie na portu B 
 	
-	GPIOB->OSPEEDR=0;
-	//GPIOH->OSPEEDR=0;
-	
+	GPIO_Init_LED.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+	GPIO_Init_LED.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_Init_LED.GPIO_Speed =  GPIO_Speed_2MHz;
+	GPIO_Init_LED.GPIO_OType = GPIO_OType_PP;
+	GPIO_Init_LED.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOB , &GPIO_Init_LED);
 	while(1)
 	{
 		
-		GPIOB->ODR=0xF0;
+	GPIO_SetBits(GPIOB, GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);
 		for (i=0; i<200000; i++) {}
-		GPIOB->ODR=0x0;
+	GPIO_ResetBits (GPIOB, GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7);	
 		for (i=0;i<200000; i++) {}
 			
 	}

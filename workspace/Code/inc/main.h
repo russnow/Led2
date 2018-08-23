@@ -4,9 +4,6 @@
 #include "mcu_ini.h"
 
 
-
-
-
 #define GREENSTM_ON()		GPIO_SetBits(GPIOB, GPIO_Pin_7)
 #define GREENSTM_OFF()	GPIO_ResetBits (GPIOB, GPIO_Pin_7)
 #define BLUE_ON()				GPIO_SetBits(GPIOB, GPIO_Pin_6)
@@ -16,6 +13,11 @@
 #define LOW_LED_ON()		GPIO_SetBits(GPIOB, GPIO_Pin_4)
 #define LOW_LED_OFF()		GPIO_ResetBits(GPIOB, GPIO_Pin_4)
 #define DELAY						10 
+
+#define MODE_GREENSTM		0
+#define MODE_BLUE				1
+#define MODE_HIGH_LED		2
+#define MODE_LOW_LED		3
 
 #endif
 

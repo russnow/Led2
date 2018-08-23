@@ -41,7 +41,7 @@ int main (void)
 		Mode_count = DELAY;
 		Mode=MODE_GREENSTM;
 		//-------------------------------------------------------------------------------
-		//
+		//vkluchenie i vykluchenie zelenogo dioda
 		//---------------------------------------------------------------------------------
 		while(1)
 			{
@@ -58,12 +58,12 @@ int main (void)
 									{
 						
 										GREENSTM_OFF();
-										Mode = MODE_BLUE;
+										Mode = MODE_BLUE; // vkl rezhima 
 										Mode_new =1;
 									}
 							}
 //-----------------------------------------------------------
-//							
+//	vkluchenie i vykluchenie golubogo dioda						
 //-------------------------------------------------------------							
 				else if (Mode == MODE_BLUE)
 				{
@@ -82,7 +82,7 @@ int main (void)
 					}
 				}
 //------------------------------------------------------------------------
-//
+//vkluchenie i vykluchenie nizhnego zelenogo dioda
 //------------------------------------------------------------------------
 				else if (Mode == MODE_LOW_LED)
 				{
@@ -102,7 +102,7 @@ int main (void)
 				}
 				
 //--------------------------------------------------------------------------------
-//
+//vkluchenie i vykluchenie verkhnego dioda
 //--------------------------------------------------------------------------------
 				else if (Mode == MODE_HIGH_LED)
 				{
